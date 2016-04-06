@@ -1,0 +1,26 @@
+package com.company;
+
+//You have 100 doors in a row that are all initially closed.
+//You make 100 passes by the doors. The first time through, you visit every door and toggle the door
+//(if the door is closed, you open it; if it is open, you close it). The second time you only visit every 2nd door.
+//The third time, every 3rd door (door #3, #6, #9, ...), etc, until you only visit the 100th door.
+//How many doors are open at the end?
+
+public class Main {
+
+    public static void main(String[] args) {
+        boolean[] doors = new boolean[101]; //Array is one larger than usual to compensate for i == 1 in the for loop
+
+        for(int i=1;i<=100;i++) {           //i == 1 b/c if it started at 0 the modulo operation would return undeclared
+            for (int j=i;j<=100;j++) {      //Having j = i just saves processing, j should never have to look past i
+                if (j%i == 0) doors[j] = !doors[j];
+                                            //Uses i as the counter/multiplier, ie 1%1 is 0 there for switch, 1%2 is not,
+                                            //1%3 is not, but 3%3 is.
+            }
+        }
+       for (int i=1;i<=100;i++){
+           if (doors[i])
+                System.out.println("Door #" + i + " is open");
+       }
+    }
+}
