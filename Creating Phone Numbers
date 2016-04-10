@@ -1,0 +1,24 @@
+//Write a function that accepts an array of 10 integers (between 0 and 9), 
+//that returns a string of those numbers in the form of a phone number.
+//Example: Kata.createPhoneNumber(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}) // => returns "(123) 456-7890"
+
+public class Kata {
+  public static String createPhoneNumber(int[] numbers) {
+   char[] numOut = new char[] {'(','1','2','3',')',' ','4','5','6','-','7','8','9','0'};
+   
+   numOut[1] = Character.forDigit(numbers[0], 10);
+   numOut[2] = Character.forDigit(numbers[1], 10);
+   numOut[3] = Character.forDigit(numbers[2], 10);
+   numOut[6] = Character.forDigit(numbers[3], 10);
+   numOut[7] = Character.forDigit(numbers[4], 10);
+   numOut[8] = Character.forDigit(numbers[5], 10);
+   numOut[10] = Character.forDigit(numbers[6], 10);
+   numOut[11] = Character.forDigit(numbers[7], 10);
+   numOut[12] = Character.forDigit(numbers[8], 10);
+   numOut[13] = Character.forDigit(numbers[9], 10);
+   
+    
+   String number = String.valueOf(numOut);
+   return number;
+    
+  }
